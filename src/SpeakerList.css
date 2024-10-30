@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-neon-blue {
+    color: #00f9ff;
+  }
+  .text-neon-pink {
+    color: #ff007c;
+  }
+}
+
+/* Moving Round Golden Border */
+.moving-gold-border {
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  border-image: linear-gradient(45deg, #ffd700, transparent, #ffd700, transparent) 1;
+  animation: border-move 3s linear infinite;
+}
+
+/* Keyframe for Moving Border Animation */
+@keyframes border-move {
+  0% {
+    border-image-source: linear-gradient(45deg, #ffd700, transparent, #ffd700, transparent);
+  }
+  100% {
+    border-image-source: linear-gradient(405deg, #ffd700, transparent, #ffd700, transparent);
+  }
+}
+/* Moving Golden Border Animation */
+.moving-gold-border {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .moving-gold-border {
+    border: 3px solid transparent;
+    border-radius: 8px;
+    border-image: linear-gradient(270deg, #FFD700, #FFA500, #FFD700) 1;
+    animation: gold-border-move 2s linear infinite;
+  }
+  
+  
+  .moving-gold-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    padding: 3px; /* Adjust padding as needed */
+    background: linear-gradient(90deg, #FFD700, #FFC107, #FFD700);
+    background-size: 300% 300%;
+    animation: moving-border 3s linear infinite;
+    z-index: -1;
+  }
+  
+  /* Keyframes for the moving border effect */
+  @keyframes moving-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
